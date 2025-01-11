@@ -1,6 +1,7 @@
 :root {
 	--background-color: #111111;
 	--primary-color: white;
+	--secondary-color:#9CA3AF;
 	--card-color: #212020;
 }
 
@@ -11,6 +12,10 @@ html, body {
 	color: var(--primary-color);
 	font-family: Inter, sans-serif, Helvetica;
 	overflow-x: hidden;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: center;
 }
 * {
 	margin: 0;
@@ -22,7 +27,6 @@ html, body {
 
 /******************** Header ********************/
 header, .navbar {
-	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -47,11 +51,11 @@ header > span {
 	column-gap: 3.5vw;
 	opacity: 0;
 	transition: opacity 2s ease, transform 2s ease;
-	transform: translateX(50vw) translateY(47px);
+	transform: translateX(50vw) translateY(35px);
 }
 .navbar.loaded {
 	opacity: 1;
-	transform: translateX(65vw) translateY(47px);
+	transform: translateX(17vw) translateY(35px);
 }
 .header-link {
 	position: relative;
@@ -112,15 +116,25 @@ header > span {
 
 /******************** Overview ********************/
 .overview {
+	overflow: hidden;
 	margin-top: 150px;
-	border: 5px solid blue;
+	border: 1px solid rgba(57, 53, 53, 0.7);
+	border-radius: 10px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	padding: 40px;
+	padding-left: 10px;
+	padding-right: 10px;
 	column-gap: 7vw;
+	width: 60%;
+	opacity: 0;
+	transition: opacity 2s ease;
+}
+.overview.loaded {
+	opacity: 1;
 }
 .card {
 	position: relative;
@@ -144,6 +158,7 @@ header > span {
 	box-shadow: 15px 15px 30px #2b2a2a,
     			-15px -15px 30px #7b7979;
 	animation: shadow-shift 8s infinite linear;
+	z-index: 2;
 }
 .card::before, .card::after {
 	content: "";
@@ -177,7 +192,6 @@ header > span {
 .description {
 	width: 50%;
 	height: auto;
-	border: 5px solid red;
 	display: flex;
 	flex-direction: column;
 }
@@ -185,6 +199,79 @@ header > span {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+}
+.description > div > p {
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 2.5rem;
+}
+.social-tags {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	column-gap: 3vw;
+	align-items: center;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+.social-tags svg, .social-tags svg path {
+	cursor: pointer;
+	width: 25px;
+	height: auto;
+	fill: var(--secondary-color);
+	border: 1px solid rgba(57, 53, 53, 0.7);
+	border-radius: 7px;
+	padding: 10px;
+	transition: fill 0.5s ease;
+}
+.social-tags a:hover svg, .social-tags a:hover svg path{
+	fill: white;
+}
+.social-tags a {
+	position: relative;
+}
+#desc-loc {
+	font-size: 1.5rem;
+	margin-top: 5px;
+	margin-left: 20px;
+	color: var(--secondary-color);
+	white-space: nowrap;
+}
+#desc-loc svg, #desc-loc svg path {
+	width: 20px;
+	height: auto;
+	margin: 0;
+	fill: var(--secondary-color);
+}
+#desc-desc {
+	font-size: 1.2rem;
+	margin-top: 20px;
+	width: 115%;
+}
+.copied-popup::before {
+	content: "Copied to clipboard.";
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	white-space: nowrap;
+	background-color: #9CA3AF;
+	width: 200px;
+	height: 35px;
+	border-radius: 5px;
+	color: black;
+	position: absolute;
+	opacity: 0.7;
+	top: -20px;
+	left: -75px;
+	animation: fade 1s linear forwards;
+	animation-delay: 0.5s;
+	z-index: 2;
+}
+@keyframes fade {
+	0% {opacity: 0.7;}
+	100% {opacity: 0;}
 }
 
 /******************** Media Queries ********************/
@@ -221,5 +308,25 @@ header > span {
 	}
 	.overview {
 		margin-top: 20px;
+		flex-direction: column;
+		padding: 40px;
+	}
+	.description {
+		margin-top: 40px;
+		width: 80%;
+		align-items: center;
+	}
+	.social-tags {
+		margin: 0;
+		margin-bottom: 10px;
+	}
+}
+@media screen and (max-width: 570px) {
+	.description {
+		margin-top: 40px;
+		width: 90%;
+	}
+	.description > div > p {
+		font-size: 1.8rem;
 	}
 }
