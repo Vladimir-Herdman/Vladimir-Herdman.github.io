@@ -47,13 +47,14 @@
 			property="twitter:image" 
 			content="https://vladimir-herdman.github.io/public/images/favicon.png?v=1"
 		>
-		<meta name="theme-color" content="rgb(143, 13, 48)">
-		<meta name="msapplication-navbutton-color" content="rgb(143, 13, 48)">
+		<meta name="theme-color" content="rgb(17, 17, 17)">
+		<meta name="msapplication-navbutton-color" content="rgb(17, 17, 17)">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta
 			name="apple-mobile-web-app-status-bar-style"
 			content="black-translucent"
 		>
+		<script src="./index.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -67,6 +68,24 @@
 				<a href="./contact.html" class="header-link"><span class="header-underline">Contact</span><span class="code-arrows"></span></a>
 			</nav>
 		</header>
+
+		<section class="overview" id="overview">
+			<div class="card" id="card">
+				<img src="./public/images/BusinessSelf.JPG" alt="Professional photo of self">
+			</div>
+			<div class="description">
+				<div>
+					<p>Vladimir Herdman</p>
+					<span class="social-tags">a a a a</span>
+				</div>
+				<p>Ohio, United States</p>
+				<p>
+					I am a 20-year-old Computer Science major attending Ohio 
+					Northern University.  I have been programming for over 3 
+					years.  I enjoy creating and being a part of a project.
+				</p>
+			</div>
+		</section>
 
 		<footer>
 
@@ -84,10 +103,9 @@
 					navbar.classList.add("loaded");
 				}, 500);
 				setTimeout(() => {
-					let current_page_link;
 					for (const link of header_links) {
 						const link_split = link.href.split("/");
-						if (currentURL.split("/")[currentURL.split("/").length - 1] === "" || link_split[link_split.length - 1] === "") {
+						if (currentURL.split("/")[currentURL.split("/").length - 1] === "" || link_split[link_split.length - 1] === currentURL.split("/")[currentURL.split("/").length - 1]) {
 							link.classList.add("current-link-loaded");
 							break;
 						}

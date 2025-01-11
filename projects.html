@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" >
+		<link rel="icon" type="image/png" href="./public/images/favicon.png?v=1">
+		<link rel="stylesheet" href="./public/stylesheets/style.css">
+		<meta name="author" content="Vladimir Herdman">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+			name="keywords"
+			content="Coding, Web Development, Student, College, Computer Science, 
+				Learner, Code"
+		>
+		<meta name="mobile-web-app-capable" content="yes">
+		<title>Projects | Vladimir Herdman</title>
+		<meta name="title" content="Projects | Vladimir Herdman">
+		<meta
+			name="description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://vladimir-herdman.github.io/projects.html">
+		<meta property="og:title" content="Projects | Vladimir Herdman">
+		<meta
+			property="og:description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		<meta 
+			property="og:image" 
+			content="https://vladimir-herdman.github.io/public/images/favicon.png?v=1"
+		>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://vladimir-herdman.github.io/projects.html">
+		<meta property="twitter:title" content="Projects | Vladimir Herdman">
+		<meta
+			property="twitter:description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		<meta 
+			property="twitter:image" 
+			content="https://vladimir-herdman.github.io/public/images/favicon.png?v=1"
+		>
+		<meta name="theme-color" content="rgb(17, 17, 17)">
+		<meta name="msapplication-navbutton-color" content="rgb(17, 17, 17)">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		>
+	</head>
+	<body>
+		<header>
+			<span>
+				<a href="./" id="header_name" class="header-link"><b><span class="header-underline">Vladimir Herdman</span></b><span class="code-arrows"></span></a>
+			</span>
+			<nav class="navbar" id="navbar">
+				<a href="./about.html" class="header-link"><span class="header-underline">About</span><span class="code-arrows"></span></a>
+				<a href="./experience.html" class="header-link"><span class="header-underline">Experience</span><span class="code-arrows"></span></a>
+				<a href="./projects.html" class="header-link"><span class="header-underline">Projects</span><span class="code-arrows"></span></a>
+				<a href="./contact.html" class="header-link"><span class="header-underline">Contact</span><span class="code-arrows"></span></a>
+			</nav>
+		</header>
+
+		<footer>
+
+		</footer>
+
+		<script defer>
+			"use strict"
+
+			const navbar = document.getElementById("navbar");
+			const currentURL = window.location.href;
+			const header_links = [document.getElementById("header_name"), ...navbar.children];
+
+			window.onload = () => {
+				setTimeout(() => {
+					navbar.classList.add("loaded");
+				}, 500);
+				setTimeout(() => {
+					for (const link of header_links) {
+						const link_split = link.href.split("/");
+						if (link.href === currentURL) {
+							link.classList.add("current-link-loaded");
+							break;
+						}
+					}
+				}, 2850);
+			};
+		</script>
+	</body>
+<html>
