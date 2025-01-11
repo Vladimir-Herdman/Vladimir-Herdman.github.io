@@ -16,6 +16,8 @@ html, body {
 	flex-direction: column;
 	flex-wrap: nowrap;
 	align-items: center;
+	width: 100%;
+	min-height: 100vh;
 }
 * {
 	margin: 0;
@@ -51,7 +53,7 @@ header > span {
 	column-gap: 3.5vw;
 	opacity: 0;
 	transition: opacity 2s ease, transform 2s ease;
-	transform: translateX(50vw) translateY(35px);
+	transform: translateX(-20vw) translateY(35px);
 }
 .navbar.loaded {
 	opacity: 1;
