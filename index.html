@@ -1,62 +1,103 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="A personal website for my own use, an example website deployment before moving on to the actual deployment">
+		<meta charset="UTF-8" >
+		<link rel="icon" type="image/png" href="./public/images/favicon.png?v=1">
+		<link rel="stylesheet" href="./public/stylesheets/style.css">
 		<meta name="author" content="Vladimir Herdman">
-    	<link rel="stylesheet" href="./public/stylesheets/style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta
+			name="keywords"
+			content="Coding, Web Development, Student, College, Computer Science, 
+				Learner, Code"
+		>
+		<meta name="mobile-web-app-capable" content="yes">
 		<title>Vladimir Herdman</title>
+		<meta name="title" content="Vladimir Herdman">
+		<meta
+			name="description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://vladimir-herdman.github.io/">
+		<meta property="og:title" content="Vladimir Herdman">
+		<meta
+			property="og:description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		<meta 
+			property="og:image" 
+			content="https://vladimir-herdman.github.io/public/images/favicon.png?v=1"
+		>
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:url" content="https://vladimir-herdman.github.io/">
+		<meta property="twitter:title" content="Vladimir Herdman">
+		<meta
+			property="twitter:description"
+			content="Vladimir Herdman is a Computer Science student currently 
+				attending Ohio Northern University."
+		>
+		<meta 
+			property="twitter:image" 
+			content="https://vladimir-herdman.github.io/public/images/favicon.png?v=1"
+		>
+		<meta name="theme-color" content="rgb(143, 13, 48)">
+		<meta name="msapplication-navbutton-color" content="rgb(143, 13, 48)">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta
+			name="apple-mobile-web-app-status-bar-style"
+			content="black-translucent"
+		>
 	</head>
 	<body>
 		<header>
-			<h1>Vova Herdman Website Example</h1>
+			<span>
+				<a href="./" id="header_name" class="header-link"><b>Vladimir Herdman</b><span></span></a>
+			</span>
+			<nav class="navbar" id="navbar">
+				<a href="./about.html" class="header-link">About<span></span></a>
+				<a href="./experience.html" class="header-link">Experience<span></span></a>
+				<a href="./projects.html" class="header-link">Projects<span></span></a>
+				<a href="./contact.html" class="header-link">Contact<span></span></a>
+			</nav>
 		</header>
-		<nav>
-			<div class="navbar">
-				<a href="./">Home</a>
-				<a href="./extra_page_example">Extra Page</a>
-			</div>
-		</nav>
-
-		<section>
-			<div class="explanation">
-				<div>
-					<h3>This is a test deployment</h3>
-					<p>
-						Ethan, Luke, Carter, if you're reading this, this is to show
-						that a website is possible on GitHub.  Whatever your greatest 
-						fantasies, your innermost desires, I can make them a reality.  
-						Let's build, my brother.
-					</p>
-					<p>
-						Just reach out and lets text up your website.  To make it
-						a little better of a domain name and load-potential, if you
-						have a github, we can make the website and then set it up on
-						your end.  Send me example sites of what you like, or want
-						your website to look like.
-					</p>
-				</div>
-			</div>
-
-			<div class="self-image">
-				<p>
-					Strapping young man
-				</p>
-				<img src="../public/images/BusinessSelf.JPG" alt="A handsome young man, strapping even" title="A handsome lad">
-				<p>
-					Pic for proof (irrefutable) 
-					<sup>
-						<a href="https://i.kym-cdn.com/entries/icons/original/000/040/390/cover2.jpg" target="_blank">
-							(Source)
-						</a>
-					</sup>
-				</p>
-			</div>
-		</section>
 
 		<footer>
 
 		</footer>
+
+		<script defer>
+			"use strict"
+
+			const navbar = document.getElementById("navbar");
+			const currentURL = window.location.href;
+			const header_links = [document.getElementById("header_name"), ...navbar.children];
+
+			window.onload = () => {
+				setTimeout(() => {
+					navbar.classList.add("loaded");
+				}, 500);
+				setTimeout(() => {
+					let current_page_link;
+					for (const link of header_links) {
+						const link_split = link.href.split("/");
+						if (currentURL.split("/")[currentURL.split("/").length - 1] === "" || link_split[link_split.length - 1] === "") {
+							link.classList.add("current-link-loaded");
+							break;
+						}
+						if (link.href === currentURL) {
+							link.classList.add("current-link-loaded");
+							break;
+						}
+					}
+				}, 2850);
+			};
+		</script>
 	</body>
 <html>
