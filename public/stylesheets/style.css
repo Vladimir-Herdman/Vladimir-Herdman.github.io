@@ -1,7 +1,8 @@
 :root {
 	--background-color: #111111;
-	--primary-color: white;
+	--primary-color: rgb(232, 229, 229);
 	--secondary-color:#9CA3AF;
+	--tertiary-color: rgba(57, 53, 53, 0.7);
 	--card-color: #212020;
 }
 
@@ -120,7 +121,7 @@ header > span {
 .overview {
 	overflow: hidden;
 	margin-top: 150px;
-	border: 1px solid rgba(57, 53, 53, 0.7);
+	border: 1px solid var(--tertiary-color);
 	border-radius: 10px;
 	display: flex;
 	flex-direction: row;
@@ -221,7 +222,7 @@ header > span {
 	width: 25px;
 	height: auto;
 	fill: var(--secondary-color);
-	border: 1px solid rgba(57, 53, 53, 0.7);
+	border: 1px solid var(--tertiary-color);
 	border-radius: 7px;
 	padding: 10px;
 	transition: fill 0.5s ease;
@@ -274,6 +275,47 @@ header > span {
 @keyframes fade {
 	0% {opacity: 0.7;}
 	100% {opacity: 0;}
+}
+
+/******************** Overview ********************/
+footer {
+	position: relative;
+	width: 100%;
+	height: 100px;
+	margin-top: 80px;
+	padding-top: 20px;
+}
+footer::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 15%;
+	width: 	70%;
+	height: 1px;
+	background-color: var(--tertiary-color);
+}
+footer p {
+	text-align: center;
+	padding: 10px 30px 0 30px;
+	font-size: 1rem;
+}
+.link-with-underline {
+	position: relative;
+	color: #31929A;
+}
+.link-with-underline::after {
+	content: "";
+	background-color: #31929A;
+	width: 0%;
+	height: 2px;
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	z-index: 2;
+	transition: width 0.45s ease;
+}
+.link-with-underline:hover::after {
+	width: 100%;
 }
 
 /******************** Media Queries ********************/

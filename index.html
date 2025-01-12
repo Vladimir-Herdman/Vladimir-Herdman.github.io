@@ -94,9 +94,15 @@
 			</div>
 		</section>
 
-		<footer>
+		<section class="experience">
 
-		</footer>
+		</section>
+
+		<section class="projects">
+
+		</section>
+
+		<footer id="footer"></footer>
 
 		<script defer>
 			"use strict"
@@ -124,6 +130,12 @@
 					}
 				}, 2850);
 			};
+
+			const footer = document.getElementById("footer");
+			const current_year = new Date().getFullYear();
+			console.log(current_year);
+			footer.innerHTML = `<p>© ${current_year} Vladimir Herdman | Check out some projects on my <a class="link-with-underline" href="https://github.com/Vladimir-Herdman" target="_blank">GitHub</a></p>`;
+			footer.innerHTML += '<p>Website HTML, CSS, and JS statically hosted through GitHub Pages at <a class="link-with-underline" href="https://github.com/Vladimir-Herdman/Vladimir-Herdman.github.io">this repository</a></p>';
 		</script>
 	</body>
 <html>
