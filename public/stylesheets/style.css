@@ -4,6 +4,7 @@
 	--secondary-color:#9CA3AF;
 	--tertiary-color: rgba(57, 53, 53, 0.7);
 	--card-color: #212020;
+	--school-orange: #e85c16;
 }
 
 html, body {
@@ -93,7 +94,7 @@ header > span {
 	content: '';
 	position: absolute;
 	bottom: -4px;
-	left: 1.2em;
+	left: 0;
 	width: 0;
 	height: 2px;
 	background-color: var(--primary-color);
@@ -101,7 +102,7 @@ header > span {
 	transition: width 0.45s ease;
 }
 .header-underline:hover::after {
-	width: calc(100% - 2.4em);
+	width: 100%;
 }
 .current-link-loaded .code-arrows {
 	position: absolute;
@@ -283,7 +284,7 @@ header > span {
 	100% {opacity: 0;}
 }
 
-/******************** Overview ********************/
+/******************** Footer ********************/
 footer {
 	position: relative;
 	width: 100%;
@@ -311,7 +312,7 @@ footer p {
 }
 .link-with-underline::after {
 	content: "";
-	background-color: #31929A;
+	background-color: currentColor;
 	width: 0%;
 	height: 2px;
 	position: absolute;
@@ -322,6 +323,132 @@ footer p {
 }
 .link-with-underline:hover::after {
 	width: 100%;
+}
+
+/******************** Education ********************/
+.education {
+	position: relative;
+	margin-top: 60px;
+	width: 70%;
+	height: fit-content;
+}
+.education::before {
+	content: "";
+	position: absolute;
+	top: 1.8rem;
+	width: 32%;
+	height: 100%;
+	border-top: 5px solid var(--school-orange);
+	border-left: 5px solid var(--school-orange);
+	border-radius: 20%;
+}
+.education::after {
+	content: "";
+	position: absolute;
+	top: 1.8rem;
+	right: 0;
+	width: 32%;
+	height: 100%;
+	border-top: 5px solid var(--school-orange);
+	border-right: 5px solid var(--school-orange);
+	border-radius: 20%;
+}
+.education h1 {
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 3rem;
+	text-align: center;
+}
+.onu {
+	padding: 2px 25px;
+}
+.onu :is(h3, h4) {
+	margin-top: 10px;
+	position: relative;
+}
+.onu h4 i{
+	margin-left: 15px;
+}
+.onu .right{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+/******************** Experiences ********************/
+.experiences {
+	position: relative;
+	width: 60%;
+	height: fit-content;
+	margin-top: 60px;
+}
+.experiences::after {
+	content: "";
+	position: absolute;
+	top: 1.8rem;
+	right: -3rem;
+	width: 37%;
+	height: 100%;
+	border-right: 5px solid var(--primary-color);
+	border-radius: 5%;
+}
+.experiences h1 {
+	white-space: nowrap;
+	font-weight: bold;
+	font-size: 3rem;
+	text-align: center;
+}
+.experience {
+	margin-top: 20px;
+}
+.experience h3 {
+	position: relative;
+	font-size: 1.3rem;
+}
+.experience h4 {
+	margin-top: 3px;
+	font-size: 1rem;
+}
+.exp-date {
+	font-style: italic;
+	color: var(--secondary-color);
+	position: absolute;
+	top: 50%;
+	right: 0;
+}
+.exp-date::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: -3.55rem;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	z-index: 2;
+	background-color: var(--primary-color);
+}
+.exp-date::after {
+	content: "";
+	position: absolute;
+	top: 6px;
+	right: -3.2rem;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	z-index: 2;
+	background-color: var(--school-orange);
+	transition: all 1s ease;
+}
+.experience:hover .exp-date::after {
+	background-color: orange;
+	transform: scale(1.5);
+}
+.experience ul {
+	width: 80%;
+	margin-left: 40px;
+}
+.experience ul li {
+	margin-top: 10px;
 }
 
 /******************** Media Queries ********************/
