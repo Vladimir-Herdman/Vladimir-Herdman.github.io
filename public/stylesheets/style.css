@@ -497,6 +497,22 @@ footer p {
 		margin: 0;
 		margin-bottom: 10px;
 	}
+	.education {
+		margin-top: 20px;
+	}
+	.education::after, .education::before {
+		width: 5%;
+	}
+	.onu .right {
+		display: none;
+	}
+	.experiences h1 {
+		margin-bottom: 50px;
+	}
+	.exp-date {
+		top: -100%;
+		background-color: transparent;
+	}
 }
 @media screen and (max-width: 570px) {
 	.description {
