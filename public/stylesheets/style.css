@@ -450,6 +450,35 @@ footer p {
 .experience ul li {
 	margin-top: 10px;
 }
+.languages {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: end;
+	align-items:center;
+	column-gap: 10px;
+	width: 65%;
+	margin-left: 20%;
+}
+.languages div {
+	padding: 10px 10px 0 10px;
+	display: flex;
+	flex-direction: row-reverse;
+	flex-wrap: nowrap;
+	align-items: center;
+	column-gap: 10px;
+	font-size: large;
+}
+.languages svg {
+	width: 40px;
+	height: auto;
+}
+.languages a {
+	position: relative;
+	display: block;
+	cursor: pointer;
+	border: 5px solid blue;
+}
 
 /******************** Media Queries ********************/
 @media screen and (max-width: 1180px) {
@@ -512,6 +541,9 @@ footer p {
 	.exp-date {
 		top: -100%;
 		background-color: transparent;
+	}
+	.languages div p {
+		display: none;
 	}
 }
 @media screen and (max-width: 570px) {
