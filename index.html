@@ -58,6 +58,10 @@
 	</head>
 	<body>
 		<header>
+			<button id="dark-light-mode-button">
+				<div id="planet">
+				</div>
+			</button>
 			<span>
 				<a href="./" id="header-name" class="header-link"><b><span class="header-underline">Vladimir Herdman</span></b><span class="code-arrows"></span></a>
 			</span>
@@ -87,10 +91,11 @@
 					Ohio, United States
 				</p>
 				<p id="desc-desc">
-					I am a 20-year-old Computer Science major attending Ohio 
-					Northern University.  I have been programming for over 3 
-					years.  I enjoy creating and being a part of a project.
-				</p>
+					I am a Computer Science major at Ohio Northern University
+					with over three years of programming experience. Passionate
+					about software development, I enjoy creating and working
+					with teams.
+				</p> <!--TODO: Make sound more professional, better -->
 			</div>
 		</section>
 
@@ -183,6 +188,7 @@
 		<script defer>
 			"use strict"
 
+            // Set up current underlined page
 			const navbar = document.getElementById("navbar");
 			const currentURL = window.location.href;
 			const header_links = [document.getElementById("header-name"), ...navbar.children];
@@ -207,9 +213,44 @@
 				}, 2850);
 			};
 
+            // Set up Light and Dark mode with css custom propterties
+            const dark_light_mode_button = document.getElementById("dark-light-mode-button");
+			let sun = document.getElementById("planet");
+            const root = document.querySelector(":root");
+            let light_mode = true;
+
+            dark_light_mode_button.addEventListener("click", function() {
+                if (!light_mode) {
+                    // Switch to dark mode
+                    root.style.setProperty("--background-color", "#111111");
+                    root.style.setProperty("--primary-color", "rgb(232, 229, 229)");
+                    root.style.setProperty("--social-primary", "white");
+                    root.style.setProperty("--secondary-color", "#9CA3AF");
+                    root.style.setProperty("--general-link", "#31929A");
+                    root.style.setProperty("--card-color", "#212020");
+
+					sun.style.boxShadow = "-3px 3px 0 2px var(--primary-color)";
+					sun.style.backgroundColor = "transparent";
+                } else {
+                    // Switch to light mode
+                    root.style.setProperty("--background-color", "rgb(243, 240, 240)");
+                    root.style.setProperty("--primary-color", "#111111");
+                    root.style.setProperty("--social-primary", "black");
+                    root.style.setProperty("--secondary-color", "#53555a");
+                    root.style.setProperty("--card-color", "#EEEEEE");
+
+					sun.style.boxShadow = "none";
+					sun.style.backgroundColor = "#111111";
+
+					//TODO: Convert svg images on light-mode dark-mode switch
+				}
+
+				light_mode = !light_mode;
+            });
+
+            // Set up footer data
 			const footer = document.getElementById("footer");
 			const current_year = new Date().getFullYear();
-			console.log(current_year);
 			footer.innerHTML = `<p>© ${current_year} Vladimir Herdman | Check out some projects on my <a class="link-with-underline" href="https://github.com/Vladimir-Herdman" target="_blank">GitHub</a></p>`;
 			footer.innerHTML += '<p>Website HTML, CSS, and JS statically hosted through GitHub Pages at <a class="link-with-underline" href="https://github.com/Vladimir-Herdman/Vladimir-Herdman.github.io">this repository</a></p>';
 		</script>

@@ -1,10 +1,13 @@
 :root {
 	--background-color: #111111;
 	--primary-color: rgb(232, 229, 229);
+	--social-primary: white;
 	--secondary-color:#9CA3AF;
 	--tertiary-color: rgba(57, 53, 53, 0.7);
 	--card-color: #212020;
 	--school-orange: #e85c16;
+	--general-link: #31929A;
+	transition: all 2s ease;
 }
 
 html, body {
@@ -27,6 +30,7 @@ html, body {
 	background-color: var(--background-color);
 	color: var(--primary-color);
 	text-decoration: none;
+	transition: background-color 1.5s ease, color 1.5s ease;
 }
 
 /******************** Header ********************/
@@ -37,11 +41,12 @@ header, .navbar {
 	align-items: center;
 	font-size: 18px;
 	font-family: Menlo, Consolas, Monaco;
+	background-color: transparent;
 }
 header > span {
 	position: absolute;
 	top: 35px;
-	left: 100px;
+	left: 150px;
 }
 #header-name {
 	font-size: 20px;
@@ -123,6 +128,46 @@ header > span {
 	50% {opacity: 0.4;}
 	100% {opacity: 0.4;}
 }
+#dark-light-mode-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: 35px;
+	margin-left: 35px;
+	width: 25px;
+	height: 25px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: none;
+	padding: 0;
+}
+#planet {
+	--s: 7px; /* length */
+	--o: 6px; /* offset */
+	--w: 6deg; /* thickness */
+	--n: 8; /* numbers*/
+	--c: #111111; /* color */
+	height: 100%;
+	width: 100%;
+	background-color: transparent;
+	box-shadow: -3px 3px 0 2px var(--primary-color);
+	border-radius: 50%;
+	transition: background-color 1.5s ease;
+}
+#planet::before {
+	content: "";
+	position: absolute;
+	top: calc(-1*var(--s) - var(--o));
+	bottom: calc(-1*var(--s) - var(--o));
+	left: calc(-1*var(--s) - var(--o));
+	right: calc(-1*var(--s) - var(--o));
+	border-radius: inherit;
+	background: repeating-conic-gradient(from calc(-1*var(--w)/2), var(--c) 0 calc(var(--w) - 2deg), transparent calc(var(--w)) calc(360deg/var(--n) - 2deg), var(--c) calc(360deg/var(--n)));
+	-webkit-mask: radial-gradient(farthest-side, transparent calc(100% - var(--s)), #fff calc(100% - var(--s)));
+          mask:radial-gradient(farthest-side,transparent calc(100% - var(--s)),#fff calc(100% - var(--s)));
+}
 
 /******************** Overview ********************/
 .overview {
@@ -141,7 +186,7 @@ header > span {
 	column-gap: 7vw;
 	width: 60%;
 	opacity: 0;
-	transition: opacity 2s ease;
+	transition: opacity 2s ease, background-color 1.5s ease, color 1.5s ease;
 }
 .overview.loaded {
 	opacity: 1;
@@ -151,7 +196,7 @@ header > span {
 	width: 190px;
 	height: 254px;
 	border-radius: 30px;
-	background: var(--card-color);
+	background-color: var(--card-color);
 	transform-style: preserve-3d;
 	transform:
 		perspective(5000px)
@@ -160,6 +205,7 @@ header > span {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	transition: background-color 1.5s ease;
 }
 .card img {
 	width: 100%;
@@ -177,15 +223,17 @@ header > span {
 }
 .card::before {
 	inset: 0.75rem;
-	background: var(--card-color);
+	background-color: var(--card-color);
 	transform: translateZ(-49px);
 	filter: blur(15px);
 	opacity: 0.5;
+	transition: background-color 1.5s ease;
 }
 .card::after {
 	inset: -1rem;
-	background: linear-gradient(-45deg, red, blue);
+	background: var(--primary-color);
 	transform: translateZ(-50px);
+	transition: background-color 1.5s ease;
 }
 @keyframes shadow-shift {
 	0% {box-shadow: 15px 15px 30px #2b2a2a,
@@ -233,9 +281,11 @@ header > span {
 	border-radius: 7px;
 	padding: 10px;
 	transition: fill 0.5s ease;
+	background-color: transparent;
+	transition: fill 1.5s ease, border 1.5s ease, background-color 1.5s ease;
 }
 .social-tags a:hover svg, .social-tags a:hover svg path{
-	fill: white;
+	fill: var(--social-primary);
 }
 .social-tags a {
 	position: relative;
@@ -308,7 +358,7 @@ footer p {
 }
 .link-with-underline {
 	position: relative;
-	color: #31929A;
+	color: var(--general-link);
 }
 .link-with-underline::after {
 	content: "";
