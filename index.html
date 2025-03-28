@@ -54,7 +54,7 @@
 			name="apple-mobile-web-app-status-bar-style"
 			content="black-translucent"
 		>
-		<script src="./index.js" defer></script>
+		<script src="./public/javascripts/index.js" defer></script>
 	</head>
 	<body>
 		<header>
@@ -66,10 +66,10 @@
 				<a href="./" id="header-name" class="header-link"><b><span class="header-underline">Vladimir Herdman</span></b><span class="code-arrows"></span></a>
 			</span>
 			<nav class="navbar" id="navbar">
-				<a href="./about.html" class="header-link"><span class="header-underline">About</span><span class="code-arrows"></span></a>
-				<a href="./experience.html" class="header-link"><span class="header-underline">Experience</span><span class="code-arrows"></span></a>
-				<a href="./projects.html" class="header-link"><span class="header-underline">Projects</span><span class="code-arrows"></span></a>
-				<a href="./contact.html" class="header-link"><span class="header-underline">Contact</span><span class="code-arrows"></span></a>
+				<a href="./pages/about.html" class="header-link"><span class="header-underline">About</span><span class="code-arrows"></span></a>
+				<a href="./pages/experience.html" class="header-link"><span class="header-underline">Experience</span><span class="code-arrows"></span></a>
+				<a href="./pages/projects.html" class="header-link"><span class="header-underline">Projects</span><span class="code-arrows"></span></a>
+				<a href="./pages/contact.html" class="header-link"><span class="header-underline">Contact</span><span class="code-arrows"></span></a>
 			</nav>
 		</header>
 
@@ -243,6 +243,7 @@
 					sun.style.backgroundColor = "#111111";
 
 					//TODO: Convert svg images on light-mode dark-mode switch
+					//TODO: Implement Browser preference check for light/dark mode start when opening site
 				}
 
 				light_mode = !light_mode;
