@@ -52,3 +52,5 @@ function copy(element) {
 			console.error("error copying to clipboard")
 		});
 }
+
+//TODO - Dizzyness when circling card head multiple times
