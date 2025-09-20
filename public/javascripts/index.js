@@ -1,24 +1,27 @@
 "use strict"
 
 const card = document.getElementById("card");
+const overview = document.getElementById("overview");
 
-document.getElementById("overview").addEventListener("mousemove", (e) => {
-	card.style.transition = "none";
+overview.addEventListener("mousemove", (e) => {
 	if (window.innerWidth <= 600) {
 		card.style.transition = "transform 2s ease";
 	}
 	rotateElement(e, card);
 }, 0);
-document.getElementById("overview").addEventListener("mouseleave", (e) => {
+overview.addEventListener("mouseleave", (e) => {
 	rotate_back(card);
 }, 0);
+overview.addEventListener("mouseenter", (e) => {
+  rotateElement(e, card, true);
+}, 0);
 
-function rotateElement(event, element) {
+function rotateElement(event, element, initial_enter=false) {
 	const x = event.clientX;
 	const y = event.clientY;
 	
 	// base card movement off position relative to overview section and its size
-	const overview_rect = document.getElementById("overview").getBoundingClientRect();
+	const overview_rect = overview.getBoundingClientRect();
 	let middleX;
 	if (window.innerWidth <= 1180) {
 		middleX = overview_rect.left + overview_rect.width / 2;
@@ -30,8 +33,18 @@ function rotateElement(event, element) {
 	const offsetX = ((x - middleX) / middleX) * 30;
 	const offsetY = ((y - middleY) / middleY) * 30;
 
-	element.style.setProperty("--rotateX", -1 * offsetY + "deg");
-	element.style.setProperty("--rotateY", offsetX + "deg");
+  if (initial_enter) {
+    card.style.transition = "transform 0.5s ease";
+    element.style.setProperty("--rotateX", -offsetY + "deg");
+    element.style.setProperty("--rotateY", offsetX + "deg");
+
+    setTimeout(() => {
+      card.style.transition = "transform 0.1s ease";
+    }, 500);
+  } else {
+    element.style.setProperty("--rotateX", -offsetY + "deg");
+    element.style.setProperty("--rotateY", offsetX + "deg");
+  }
 }
 
 function rotate_back(element){
