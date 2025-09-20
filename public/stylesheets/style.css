@@ -7,6 +7,15 @@
 	--card-color: #212020;
 	--school-orange: #e85c16;
 	--general-link: #31929A;
+
+  --svg-path-background: #fff;
+  --svg-path-details: #000;
+  --svg-path-background-lightest: #ddd; /* was #eee */
+  --svg-path-background-light: #bbb; /* was #ddd */
+  --svg-line: #000;
+  --svg-stroke: #000;
+  --svg-circle: #000;
+
 	transition: all 2s ease;
 }
 
@@ -448,6 +457,9 @@ footer p {
 	font-size: 3rem;
 	text-align: center;
 }
+.experiences > :nth-child(n+3) { /* Skip h1 and first exp, extra margin on rest of exp children */
+  margin-top: 40px;
+}
 .experience {
 	margin-top: 20px;
 }
@@ -529,6 +541,14 @@ footer p {
 	cursor: pointer;
 	border: 5px solid blue;
 }
+
+.svg-path-background {fill: var(--svg-path-background);}
+.svg-path-background-light {fill: var(--svg-path-background-light);}
+.svg-path-background-lightest {fill: var(--svg-path-background-lightest);}
+.svg-path-details {fill: var(--svg-path-details);}
+.svg-line {stroke: var(--svg-line); stroke-width: 1;}
+.svg-stroke {stroke: var(--svg-stroke); fill: none; stroke-width: 2;}
+.svg-circle {fill: var(--svg-circle); stroke-width: 1;}
 
 /******************** Media Queries ********************/
 @media screen and (max-width: 1180px) {
